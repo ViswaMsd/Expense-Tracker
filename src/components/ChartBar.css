@@ -1,0 +1,38 @@
+.chartBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+.chartBar__inner {
+  width: 1rem;
+  height: 70%;
+  overflow: hidden;
+  border: 2px white solid;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+.chartBar__inner__fill {
+  width: 100%;
+  height: 50%;
+  background-color: rgb(179, 144, 212);
+  animation: anim 1s ;
+  transition: all 1s;
+}
+.chartBar__lable {
+  height: 5%;
+  color: aliceblue;
+  text-align: center;
+}
+
+@keyframes anim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

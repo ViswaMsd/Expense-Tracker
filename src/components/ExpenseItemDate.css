@@ -1,0 +1,13 @@
+.expenseItem__date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* color: red; */ /*test*/
+  padding: 0.5rem 1.3rem;
+
+  border: white solid 1px;
+  border-radius: 0.5rem;
+  box-shadow: grey 2px 2px 4px;
+  background-color: #3f3f3f;
+}
