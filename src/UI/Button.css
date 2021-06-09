@@ -1,0 +1,12 @@
+.btn {
+  font-family: inherit;
+  padding: 0.5rem 1rem;
+  width: 10rem;
+  height: 2.5rem;
+  margin: 0.5rem;
+  outline: none;
+  color: lightcyan;
+  border: 2px rgb(210, 245, 250) solid;
+  border-radius: 0.5rem;
+  background-color: rgb(34, 11, 94);
+}

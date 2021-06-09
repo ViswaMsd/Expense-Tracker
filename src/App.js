@@ -112,14 +112,13 @@ function App() {
 
   const addExpense = function (newExpense) {
     setExpenses([newExpense, ...expenses]);
-    
   };
 
   return (
-    <div>
+    <>
       <NewExpense addExpense={addExpense}> </NewExpense>
       <Expense expenses={expenses} />
-    </div>
+    </>
   );
 }
 

@@ -1,5 +1,6 @@
-import React, { useRef,useEffect } from "react";
-import Card from "./Card";
+import React, { useRef, useEffect } from "react";
+import Card from "../UI/Card";
+import Button from "../UI/Button";
 import "./NewExpense.css";
 
 function NewExpense(props) {
@@ -9,13 +10,13 @@ function NewExpense(props) {
   const today = new Date();
   useEffect(() => {
     refDate.current.value =
-    today.getFullYear().toString() +
-    "-" +
-    (today.getMonth() + 1).toString().padStart(2, 0) +
-    "-" +
-    today.getDate().toString().padStart(2, 0);
+      today.getFullYear().toString() +
+      "-" +
+      (today.getMonth() + 1).toString().padStart(2, 0) +
+      "-" +
+      today.getDate().toString().padStart(2, 0);
   }, []);
-  
+
   const submitHandler = function (event) {
     event.preventDefault();
     const newExpenseObject = {
@@ -65,9 +66,9 @@ function NewExpense(props) {
             ></input>
           </div>
         </div>
-        <div className="btn">
-          <button type="submit">Add Expense</button>
-        </div>
+        <Button className="btn--relative" type="submit">
+          Add Expense
+        </Button>
       </form>
     </Card>
   );

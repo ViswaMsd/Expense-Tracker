@@ -1,7 +1,7 @@
 import React from "react";
 import ChartBar from "./ChartBar";
 import "./Chart.css";
-import Card from "./Card";
+import Card from "../UI/Card";
 
 function chart(props) {
   let monthlyExpenseArray = [];
