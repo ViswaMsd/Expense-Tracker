@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-// Component Imports
-import ExpenseItem from "./components/ExpenseItem";
 import NewExpense from "./components/NewExpense";
-import ExpensesFilter from "./components/ExpensesFilter";
-import Chart from "./components/Chart";
+import Expense from "./components/Expense";
 
 function App() {
   const DUMMY_EXPENSES = [
@@ -38,40 +35,90 @@ function App() {
       amount: 299,
       date: new Date(2019, 5, 12),
     },
+    {
+      id: "e7",
+      title: "Apple Watch",
+      amount: 299,
+      date: new Date(2020, 1, 12),
+    },
+    {
+      id: "e8",
+      title: "Mobile Case",
+      amount: 29,
+      date: new Date(2020, 2, 12),
+    },
+    {
+      id: "e9",
+      title: "Towel",
+      amount: 399,
+      date: new Date(2020, 3, 12),
+    },
+    {
+      id: "e10",
+      title: "Extension Box",
+      amount: 10,
+      date: new Date(2020, 4, 12),
+    },
+    {
+      id: "e11",
+      title: "Door",
+      amount: 355,
+      date: new Date(2020, 5, 12),
+    },
+    {
+      id: "e12",
+      title: "Laptop",
+      amount: 799,
+      date: new Date(2020, 6, 12),
+    },
+    {
+      id: "e13",
+      title: "Cooler",
+      amount: 499,
+      date: new Date(2020, 7, 12),
+    },
+    {
+      id: "e14",
+      title: "Fan",
+      amount: 549,
+      date: new Date(2020, 8, 12),
+    },
+    {
+      id: "e15",
+      title: "Mixer",
+      amount: 699,
+      date: new Date(2020, 9, 12),
+    },
+    {
+      id: "e16",
+      title: "Fridge",
+      amount: 1000,
+      date: new Date(2020, 10, 12),
+    },
+    {
+      id: "e17",
+      title: "Book",
+      amount: 15,
+      date: new Date(2020, 11, 12),
+    },
+    {
+      id: "e18",
+      title: "Oil",
+      amount: 500,
+      date: new Date(2020, 0, 12),
+    },
   ];
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
-  const [filteredYear, setFilterYear] = useState("2020");
-  const filteredExpenses = expenses.filter(expense => expense.date.toLocaleString('default', { year: 'numeric' }) == filteredYear);
 
   const addExpense = function (newExpense) {
     setExpenses([newExpense, ...expenses]);
-    console.log(expenses);
+    
   };
-  const onFilterChange = function (filteredYear) {
-    setFilterYear(filteredYear);
-  };
+
   return (
     <div>
       <NewExpense addExpense={addExpense}> </NewExpense>
-      <Chart filteredExpenses={filteredExpenses}/>
-      <ExpensesFilter
-        selectedYear={filteredYear}
-        onFilterChange={onFilterChange}
-      ></ExpensesFilter>
-      {expenses
-        .filter(
-          (expense) =>
-            expense.date.toLocaleString("default", { year: "numeric" }) ==
-            filteredYear
-        )
-        .map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            date={expense.date}
-            title={expense.title}
-            amount={expense.amount}
-          ></ExpenseItem>
-        ))}
+      <Expense expenses={expenses} />
     </div>
   );
 }

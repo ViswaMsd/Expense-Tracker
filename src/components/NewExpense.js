@@ -1,46 +1,38 @@
-import React from "react";
+import React, { useRef,useEffect } from "react";
 import Card from "./Card";
 import "./NewExpense.css";
 
 function NewExpense(props) {
-  // const [newTitle, setNewTitle] = useState("");
-  // const [newAmount, setNewAmount] = useState("");
-  // const [newDate, setNewDate] = useState("");
-
-  let newTitle;
-  let newAmount;
-  let newDate;
-
+  const refTitle = useRef();
+  const refAmount = useRef();
+  const refDate = useRef();
+  const today = new Date();
+  useEffect(() => {
+    refDate.current.value =
+    today.getFullYear().toString() +
+    "-" +
+    (today.getMonth() + 1).toString().padStart(2, 0) +
+    "-" +
+    today.getDate().toString().padStart(2, 0);
+  }, []);
+  
   const submitHandler = function (event) {
     event.preventDefault();
-    event.target.onBlur = true;
-    event.target.reset();
-    // console.log(event);
     const newExpenseObject = {
-      title: newTitle,
-      amount: Number(newAmount),
-      date: new Date(newDate),
+      title: refTitle.current.value,
+      amount: Number(refAmount.current.value),
+      date: new Date(refDate.current.value),
       id: String(Math.random()),
     };
     props.addExpense(newExpenseObject);
-  };
-  const titleBlurHandler = function (event) {
-    event.preventDefault();
-    // setNewTitle(event.target.value);
-    newTitle = String(event.target.value);
-    console.log(newTitle);
-  };
-  const amountBlurHandler = function (event) {
-    event.preventDefault();
-    // setNewAmount(event.target.value);
-    newAmount = String(event.target.value);
-    console.log(newAmount);
-  };
-  const dateBlurHandler = function (event) {
-    event.preventDefault();
-    // setNewDate(event.target.value);
-    newDate = String(event.target.value);
-    console.log(newDate);
+    refTitle.current.value = "";
+    refAmount.current.value = "";
+    refDate.current.value =
+      today.getFullYear().toString() +
+      "-" +
+      (today.getMonth() + 1).toString().padStart(2, 0) +
+      "-" +
+      today.getDate().toString().padStart(2, 0);
   };
 
   return (
@@ -49,9 +41,18 @@ function NewExpense(props) {
         <div className="formInput">
           <div>
             <input
+              className="today"
+              type="Date"
+              placeholder="dd-mm-yyyy"
+              ref={refDate}
+              required
+            ></input>
+          </div>
+          <div>
+            <input
               type="text"
               placeholder="Item"
-              onBlur={titleBlurHandler}
+              ref={refTitle}
               required
             ></input>
           </div>
@@ -59,15 +60,7 @@ function NewExpense(props) {
             <input
               type="number"
               placeholder="Amount"
-              onBlur={amountBlurHandler}
-              required
-            ></input>
-          </div>
-          <div>
-            <input
-              type="Date"
-              placeholder="dd-mm-yyyy"
-              onBlur={dateBlurHandler}
+              ref={refAmount}
               required
             ></input>
           </div>

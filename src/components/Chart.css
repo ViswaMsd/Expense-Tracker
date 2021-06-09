@@ -1,9 +1,9 @@
 .chart {
-  height: 15rem;
+  height: 10rem;
   margin: 30px;
-  padding: 20px;
+  padding: 1rem 1rem .5rem 1rem;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: rgb(0, 1, 2);
+  background-color: rgb(177, 144, 196);
 }

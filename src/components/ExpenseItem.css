@@ -2,14 +2,10 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* justify-content: */
   padding: 0.5rem;
-  /* border: white solid 1px; */
- 
-  background-color: #555555;
+  background-color: #3f3f3f;
   margin: 1rem;
 }
-
 
 .expenseItem__description {
   flex: 1;
@@ -23,6 +19,6 @@
   padding: 0.5rem 1.5rem;
   border: white solid 1px;
   border-radius: 0.5rem;
-  box-shadow: grey 0px 2px 4px;
+  box-shadow: grey 0px 2px 8px;
   background-color: rgb(83, 10, 126);
 }
