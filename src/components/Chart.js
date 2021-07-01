@@ -23,7 +23,7 @@ function chart(props) {
     monthlyExpenseArray[i] = props.filteredExpenses
       .filter((expense) => {
         return (
-          expense.date.toLocaleString("default", { month: "numeric" }) == i + 1
+          +expense.date.toLocaleString("default", { month: "numeric" }) === i + 1
         );
       })
       .reduce((acc, expense) => acc + expense.amount, 0);
