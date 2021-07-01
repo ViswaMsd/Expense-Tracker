@@ -13,7 +13,7 @@ function Expense(props) {
 
   const filteredExpenses = props.expenses.filter(
     (expense) =>
-      expense.date.toLocaleString("default", { year: "numeric" }) ==
+      expense.date.toLocaleString("default", { year: "numeric" }) ===
       filteredYear
   );
 
